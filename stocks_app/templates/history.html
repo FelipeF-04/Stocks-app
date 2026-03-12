@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <body>
+        <table class="table table-striped" style="margin: auto;">
+            <tr>
+                <td><b>Action</b></td>
+                <td><b>Symbol</b></td>
+                <td><b>Shares</b></td>
+                <td><b>Price</b></td>
+                <td><b>Date</b></td>
+                <td><b>Time</b></td>
+            </tr>
+            {% for item in history %}
+                <tr>
+                    <td> {{ item.action }} </td>
+                    <td> {{ item.symbol }} </td>
+                    <td> {{ item.shares }} </td>
+                    <td> {{ item.my_cost }} </td>
+                    <td> {{ item.date }} </td>
+                    <td> {{ item.time }} </td>
+                </tr>
+
+
+            {% endfor %}
+{% endblock %}

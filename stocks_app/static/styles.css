@@ -1,0 +1,44 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+.navbar-nav {
+  gap: 20px; /* space between each nav item — change 12px to taste */
+}
+
+.nav-icon {
+  height: 22px;    /* adjust size to taste */
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0 10px; /* remove or adjust spacing if needed */
+}
+
+/* If you don't have Bootstrap's .visually-hidden, add this: */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}

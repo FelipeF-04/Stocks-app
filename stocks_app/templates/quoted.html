@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block main %}
+    <body>
+        <table class="table table-striped" style="margin: auto; width: 75%">
+            <tr>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Symbol</td>
+            </tr>
+            <tr>
+                <td>{{results.name}}</td>
+                <td>{{results.price}}</td>
+                <td>{{results.symbol}}</td>
+            </tr>
+        </table>
+        
+        {% if graph %}
+        <div style="text-align: center; margin-top: 20px;">
+            <img src="data:image/png;base64,{{ graph }}" 
+                 alt="Stock Chart" 
+                 style="max-width: 600px; width: 100%; height: auto;">
+        </div>
+        {% else %}
+        <div style="text-align: center; margin-top: 20px; color: #666;">
+            <p>Chart not available for this stock</p>
+        </div>
+        {% endif %}
+        <div class="mt-4">
+            <a href="/stock/{{ symbol }}" class="btn btn-info">
+                <i class="fas fa-brain"></i> View AI Prediction & Detailed Analysis
+            </a>
+        </div>
+    </body>
+{% endblock %}

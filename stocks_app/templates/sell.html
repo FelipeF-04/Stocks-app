@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+
+    <form action="/sell" method="post">
+        <div class="mb-3">
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="margin: auto; width: auto" name="symbol" required>
+                <option disabled selected value="">Stocks</option>
+                {% for i in data %}
+                    <option value="{{ i.symbol }}">{{ i.symbol }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="shares" placeholder="Shares" type="text" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Sell!</button>
+    </form>
+
+    <body>
+        <table class="table table-striped" style="margin: auto; width: 85%">
+            <tr>
+                <td><b>Symbol</b></td>
+                <td><b>Shares</b></td>
+                <td><b>Current price</b></td>
+            </tr>
+            {% for item in data %}
+                <tr>
+                    <td> {{ item.symbol }} </td>
+                    <td> {{ item.shares }} </td>
+                    <td> {{ item.price }} </td>
+                </tr>
+            {% endfor %}
+{% endblock %}
+
+
