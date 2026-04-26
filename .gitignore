@@ -1,0 +1,28 @@
+a.py
+f.py
+p.py
+pp.py
+predict.py
+predict2.py
+flask_session/
+
+# Python bytecode/cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local environment files
+.env
+.env.*
+
+# Tool caches
+.pytest_cache/
+.mypy_cache/
+
+# OS/editor noise
+Thumbs.db
+.DS_Store

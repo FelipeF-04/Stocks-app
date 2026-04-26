@@ -28,44 +28,64 @@ A web application for managing a stock portfolio with real-time data and price p
 **Frontend:**
 - HTML/CSS templates (Jinja2)
 - Matplotlib - chart generation for visualization
-- Bootstrap - responsive styling
+- Bootstrap-style layout and components in templates
 
 ## Project Structure
 
 ```
-stocks_app/
-├── app.py                  # Main Flask application
-├── prediction_service.py   # ML model for stock predictions
-├── sql.py                  # Database utilities
-├── static/
-│   └── styles.css         # Custom styling
-├── templates/             # HTML pages
-│   ├── layout.html        # Base template
-│   ├── index.html         # Dashboard
-│   ├── login.html
-│   ├── register.html
-│   ├── quote.html         # Stock lookup
-│   ├── buy.html           # Purchase interface
-│   ├── sell.html          # Sell interface
-│   ├── history.html       # Transaction history
-│   └── stock_detail.html  # Stock details with predictions
-└── finance.db             # SQLite database
+.
+├── .gitignore
+├── README.md
+├── models/                 # Pretrained model .pkl files
+└── stocks_app/
+    ├── app.py              # Main Flask application
+    ├── prediction_service.py
+    ├── sql.py
+    ├── finance.db          # SQLite database used by the app
+    ├── static/
+    │   └── styles.css
+    └── templates/
+        ├── layout.html
+        ├── login.html
+        ├── register.html
+        ├── quote.html
+        ├── quoted.html
+        ├── buy.html
+        ├── sell.html
+        ├── history.html
+        ├── stock_detail.html
+        └── apology.html
 ```
 
 ## Getting Started
 
-1. **Install dependencies:**
+1. **Open a terminal at the repository root**
+   This must be the folder that contains `README.md`.
+
+2. **Create and activate a virtual environment (recommended):**
    ```
-   pip install flask flask-session yfinance pandas numpy scikit-learn matplotlib requests werkzeug
+   python -m venv .venv
+   .venv\Scripts\activate
    ```
 
-2. **Run the app:**
+3. **Install dependencies:**
+   ```
+   pip install flask flask-session yfinance pandas numpy scikit-learn matplotlib requests werkzeug joblib
+   ```
+
+4. **Run the app:**
    ```
    python stocks_app/app.py
    ```
 
-3. **Access it:**
+5. **Access it:**
    Open your browser and go to `http://localhost:5000`
+
+## Database Note (Important for Other Devices)
+
+- This app opens `stocks_app/finance.db` directly.
+- The repo currently includes that file, so cloning should run immediately.
+- If `finance.db` is removed, the app will fail until you recreate the `users` and `stocks` tables.
 
 ## Features
 
@@ -80,4 +100,5 @@ stocks_app/
 
 - Starting virtual cash: $10,000
 - Uses a RandomForest model trained on historical stock data
-- Session management keeps users logged in securely
+- Session data is stored by Flask-Session in `flask_session/` and should remain ignored
+- Run from the repo root so relative paths like `stocks_app/finance.db` resolve correctly
